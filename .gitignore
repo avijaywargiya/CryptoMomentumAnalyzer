@@ -1,0 +1,11 @@
+# Cached OHLCV data — never commit, fetched fresh on cloud
+data/crypto/*.csv
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+
+# Streamlit local secrets
+.streamlit/secrets.toml

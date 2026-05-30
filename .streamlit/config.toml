@@ -1,0 +1,4 @@
+[server]
+# Local dev port — Streamlit Community Cloud ignores this line
+port = 8505
+headless = true
