@@ -7,11 +7,13 @@ Data source: Binance OHLCV via CCXT  |  Cache: ./data/crypto/*.csv
 
 import time
 from datetime import datetime, timezone
+from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
 import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
+from PIL import Image as PILImage
 
 from services.data_fetcher import EXCHANGE_OPTIONS, get_data, get_exchange
 from services.indicator_engine import (
@@ -33,9 +35,12 @@ REFRESH_MIN_SECONDS = 15 * 60  # 15-minute minimum between refreshes
 # Streamlit page config
 # ---------------------------------------------------------------------------
 
+_favicon_path = Path(__file__).parent / "favicon.png"
+_favicon = PILImage.open(_favicon_path) if _favicon_path.exists() else "📈"
+
 st.set_page_config(
     page_title="Crypto Momentum Analyzer",
-    page_icon="📈",
+    page_icon=_favicon,
     layout="wide",
     initial_sidebar_state="expanded",
 )
